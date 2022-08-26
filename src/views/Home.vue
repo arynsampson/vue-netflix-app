@@ -13,7 +13,8 @@
               id="username"
               name="username"
               placeholder="Enter your username"
-              :class="{ inputError: usernameError }"
+              :class="{ inputFieldError: usernameError }"
+              v-model="usernameInput"
             />
             <p v-if="usernameError" class="error-validation">
               Please enter a valid username
@@ -25,13 +26,16 @@
               id="password"
               name="password"
               placeholder="Enter your password"
-              :class="{ inputError: usernameError }"
+              :class="{ inputFieldError: usernameError }"
+              v-model="passwordInput"
             />
             <p v-if="passwordError" class="error-validation">
               Your password must be greater than 6 characters
             </p>
           </div>
-          <input type="submit" value="Sign in" class="submit-btn" />
+          <button class="submit-btn" @click.prevent="handleSignIn">
+            Sign In
+          </button>
         </form>
       </div>
     </div>
@@ -43,9 +47,19 @@ export default {
   name: 'Home',
   data() {
     return {
+      usernameInput: '',
+      passwordInput: '',
+      user: [],
       usernameError: false,
       passwordError: false,
     };
+  },
+  methods: {
+    handleSignIn() {
+      this.user.push(this.usernameInput);
+      this.user.push(this.passwordInput);
+      localStorage.setItem('user', JSON.stringify(this.user));
+    },
   },
 };
 </script>
@@ -92,7 +106,8 @@ h1 {
   margin: 15px 0;
 }
 
-input {
+input,
+.submit-btn {
   width: 100%;
   padding: 15px;
   color: white;
@@ -101,7 +116,7 @@ input {
   border-radius: 5px;
 }
 
-.inputError {
+.inputFieldError {
   border-bottom: 2px solid rgb(244, 117, 7);
 }
 
