@@ -1,14 +1,14 @@
 <template>
-  <Home />
+  <router-view />
 </template>
 
 <script>
-import Home from './views/Home.vue';
+import SignIn from './views/SignIn.vue';
 
 export default {
   name: 'App',
   components: {
-    Home,
+    SignIn,
   },
 };
 </script>
