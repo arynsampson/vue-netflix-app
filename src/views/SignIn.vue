@@ -1,8 +1,6 @@
 <template>
   <div class="app">
-    <div class="logo-wrapper">
-      <img src="../assets/logo.png" alt="netflix-logo" class="logo" />
-    </div>
+    <Logo />
     <div class="container">
       <h1>Sign In</h1>
       <div class="form-wrapper">
@@ -31,13 +29,10 @@
               Your password must be greater than 6 characters
             </p>
           </div>
-
-          <router-link to="/home">
-            <button class="submit-btn" @click.prevent="handleSignIn">
-              Sign In
-            </button>
-          </router-link>
         </form>
+        <router-link to="/home">
+          <button class="submit-btn" @click="handleSignIn">Sign In</button>
+        </router-link>
       </div>
     </div>
   </div>
@@ -45,10 +40,11 @@
 
 <script>
 import Home from './Home.vue';
+import Logo from '../components/Logo.vue';
 
 export default {
   name: 'SignIn',
-  components: Home,
+  components: { Home, Logo },
   data() {
     return {
       usernameInput: '',
@@ -60,10 +56,9 @@ export default {
   },
   methods: {
     handleSignIn() {
-      // this.user.push(this.usernameInput);
-      // this.user.push(this.passwordInput);
-      // localStorage.setItem('user', JSON.stringify(this.user));
-      this.$router.push('/home');
+      this.user.push(this.usernameInput);
+      this.user.push(this.passwordInput);
+      localStorage.setItem('user', JSON.stringify(this.user));
     },
   },
 };
@@ -80,19 +75,6 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-}
-
-.logo-wrapper {
-  max-width: 350px;
-  display: flex;
-  justify-content: center;
-  margin: -30px auto;
-}
-
-.logo {
-  display: block;
-  max-width: 250px;
-  height: auto;
 }
 
 h1 {
