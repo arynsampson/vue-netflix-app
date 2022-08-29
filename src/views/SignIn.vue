@@ -14,7 +14,7 @@
               v-model="usernameInput"
             />
             <p v-if="usernameError" class="error-validation">
-              Please enter a valid username
+              Please enter a valid username with at least 8 characters
             </p>
           </div>
           <div class="input-wrapper">
@@ -31,7 +31,9 @@
           </div>
         </form>
         <router-link to="/home">
-          <button class="submit-btn" @click="handleSignIn">Sign In</button>
+          <button class="submit-btn" @click.prevent="handleSignIn">
+            Sign In
+          </button>
         </router-link>
       </div>
     </div>
@@ -56,9 +58,21 @@ export default {
   },
   methods: {
     handleSignIn() {
-      this.user.push(this.usernameInput);
-      this.user.push(this.passwordInput);
-      localStorage.setItem('user', JSON.stringify(this.user));
+      if (this.usernameInput.length < 8) {
+        this.usernameError = true;
+      } else {
+        this.usernameError = false;
+      }
+      if (this.passwordInput.length < 8) {
+        this.passwordError = true;
+      } else {
+        this.passwordError = false;
+      }
+      if (!this.usernameError && !this.passwordError) {
+        this.user = [this.usernameInput, this.passwordInput];
+        localStorage.setItem('user', JSON.stringify(this.user));
+        this.$router.push({ name: 'Home' });
+      }
     },
   },
 };
