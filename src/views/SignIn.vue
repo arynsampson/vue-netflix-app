@@ -81,14 +81,13 @@ export default {
 <style scoped>
 .app {
   margin: 0;
-  padding: 60px 0;
+  padding: 90px 0;
   width: 100%;
-  min-height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url('https://assets.nflxext.com/ffe/siteui/vlv3/ac824598-245b-4828-b14f-5cff9074f4d0/bb41f8e5-e48c-4721-b150-f4b664f05254/ZA-en-20220822-popsignuptwoweeks-perspective_alpha_website_small.jpg');
-  background-repeat: no-repeat;
+  height: 100%;
+  background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/ac824598-245b-4828-b14f-5cff9074f4d0/bb41f8e5-e48c-4721-b150-f4b664f05254/ZA-en-20220822-popsignuptwoweeks-perspective_alpha_website_small.jpg');
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 h1 {
@@ -123,9 +122,11 @@ input,
 
 .error-validation {
   text-align: left;
-  color: rgb(244, 117, 7);
+  color: white;
   font-size: 14px;
   padding: 7px 3px;
+  background: #e50914;
+  margin-top: 5px;
 }
 
 .submit-btn {
