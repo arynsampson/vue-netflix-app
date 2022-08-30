@@ -1,24 +1,22 @@
 <template>
-  <Logo />
-  <div v-if="user.length">
-    <p>Welcome, {{ user[0] }}</p>
-  </div>
+  <HeaderBar />
+  <p>This is the home page</p>
 </template>
 
 <script>
-import Logo from '../components/Logo.vue';
+import HeaderBar from '../components/HeaderBar.vue';
 import * as movies from '../mocks/data.json';
 
 export default {
   name: 'Home',
+  components: {
+    HeaderBar,
+  },
   data() {
     return {
       user: [],
       moviesArr: [],
     };
-  },
-  components: {
-    Logo,
   },
   mounted() {
     this.user = JSON.parse(localStorage.getItem('user'));
@@ -27,4 +25,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped></style>
