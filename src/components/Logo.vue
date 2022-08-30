@@ -12,15 +12,19 @@ export default {
 
 <style>
 .logo-wrapper {
-  max-width: 350px;
   display: flex;
   justify-content: center;
-  margin: -30px auto;
 }
 
 .logo {
   display: block;
-  max-width: 250px;
-  height: auto;
+  max-width: 140px;
+}
+
+@media screen and (min-width: 997px) {
+  .logo {
+    margin: -10px auto;
+    max-width: 300px;
+  }
 }
 </style>
