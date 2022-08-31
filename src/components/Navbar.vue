@@ -55,6 +55,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
 li {
@@ -107,10 +108,6 @@ li {
     display: inline-block;
     padding: 5px 0;
     font-size: 14px;
-  }
-
-  .burger-menu-wrapper {
-    display: none;
   }
 }
 </style>
