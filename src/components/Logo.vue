@@ -1,6 +1,8 @@
 <template>
   <div class="logo-wrapper">
-    <img src="../assets/logo.png" alt="netflix-logo" class="logo" />
+    <router-link to="/home">
+      <img src="../assets/logo.png" alt="netflix-logo" class="logo" />
+    </router-link>
   </div>
 </template>
 
@@ -18,13 +20,12 @@ export default {
 
 .logo {
   display: block;
-  max-width: 140px;
+  max-width: 180px;
 }
 
 @media screen and (min-width: 997px) {
   .logo {
     margin: -10px auto;
-    max-width: 300px;
   }
 }
 </style>
