@@ -1,26 +1,25 @@
 <template>
   <HeaderBar />
-  <p>This is the home page</p>
+  <Movies />
 </template>
 
 <script>
 import HeaderBar from '../components/HeaderBar.vue';
-import * as movies from '../mocks/data.json';
+import Movies from '../components/Movies.vue';
 
 export default {
   name: 'Home',
   components: {
     HeaderBar,
+    Movies,
   },
   data() {
     return {
       user: [],
-      moviesArr: [],
     };
   },
   mounted() {
     this.user = JSON.parse(localStorage.getItem('user'));
-    this.moviesArr = movies.movies;
   },
 };
 </script>
