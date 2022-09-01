@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <Logo />
-    <div class="container">
+    <div class="content-container">
       <h1>Sign In</h1>
       <div class="form-wrapper">
         <form>
@@ -98,7 +98,7 @@ h1 {
   text-align: left;
 }
 
-.container {
+.content-container {
   max-width: 350px;
   height: 100%;
   padding-top: 3rem;
