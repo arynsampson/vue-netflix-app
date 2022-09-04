@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import SignIn from '../views/SignIn.vue';
 import Home from '../views/Home.vue';
 import WatchList from '../views/WatchList.vue';
+import Movie from '../views/Movie.vue';
 
 const routes = [
   {
@@ -18,6 +19,13 @@ const routes = [
     path: '/watchList',
     name: 'WatchList',
     component: WatchList,
+    props: true,
+  },
+  {
+    path: '/movie/:id',
+    name: 'Movie',
+    component: Movie,
+    props: true,
   },
 ];
 
