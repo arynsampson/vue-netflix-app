@@ -5,23 +5,13 @@
     </div>
     <div class="overlay">
       <div class="movie-content">
-        <p class="movie-title">{{ item.name }}</p>
+        <router-link :to="{ name: 'Movie', params: { id: item.id } }">
+          <p class="movie-title">{{ item.name }}</p>
+        </router-link>
 
-        <p
-          v-if="!watchListItem"
-          class="add-icon icon"
-          @click="$emit('updateMovieWatchListVal', item)"
-        >
-          Add
-        </p>
+        <p v-if="!item.watchList" class="add-icon icon" @click="$emit('updateMovieWatchListVal', item)">Add</p>
 
-        <p
-          v-if="watchListItem"
-          class="remove-icon icon"
-          @click="$emit('updateMovieWatchListVal', item)"
-        >
-          Remove
-        </p>
+        <p v-else class="remove-icon icon" @click="$emit('updateMovieWatchListVal', item)">Remove</p>
       </div>
     </div>
   </div>
@@ -29,14 +19,9 @@
 
 <script>
 export default {
-  name: 'Movie',
-  props: ['item', 'watchListItem'],
+  name: 'MovieItem',
+  props: ['item'],
   emits: ['updateMovieWatchListVal'],
-  methods: {
-    addToWishlist(item) {
-      item.watchList = !item.watchList;
-    },
-  },
 };
 </script>
 
@@ -100,5 +85,9 @@ export default {
 
 .icon:hover {
   cursor: pointer;
+}
+
+.hide {
+  display: none;
 }
 </style>
