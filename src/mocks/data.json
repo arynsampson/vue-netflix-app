@@ -188,6 +188,17 @@
             "watchList": false
         },
         {
+            "id": "018",
+            "name": "Groundhog Day",
+            "movieDescription": "A narcissistic, self-centered weatherman finds himself in a time loop on Groundhog Day, and the day keeps repeating until he gets it right.",
+            "genre": ["Comedy", "Drama", "Fantasy"],
+            "comingSoon": false,
+            "availDate": "1993-02-12",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BZWIxNzM5YzQtY2FmMS00Yjc3LWI1ZjUtNGVjMjMzZTIxZTIxXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
+            "preview": "https://imdb-video.media-imdb.com/vi1957600025/1434659607842-pgv4ql-1564098301695.mp4?Expires=1662390555&Signature=HC3e~LBGvjRtR4LX~aGhU2qWzjN9tg71Tc65d6hywWKo6SAcqIRzRLlS7GzDwL0ip6wnOeJUvRGJwoU6Leei4CABrwIdyBg-vIthGPbdxY6S1jKXHyrYFQQEJne2DewJ9N5OflzDRAS6u6SwjJOW-XAfhU3Sbl9X6BdxisHzet6naGD4zed73IgjM9aL~hKxixrPHb-pvy5TDbx45CEsMmXobfCO0kpjPSTX2ASdeLUygGa~RkBgyKy7veWcTgWsQGEAWgES72iHOC3njNWxqzad4fkYq9vuhawzEOUb~8XYmY-pBbdPmZqxmhjFUf4QB4SHzo45Mbc5wTNJJo0UDA__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA",
+            "watchList": false
+        },
+        {
             "id": "019",
             "name": "Harry Potter and the Deathly Hallows: Part 2",
             "movieDescription": "Harry, Ron, and Hermione search for Voldemort's remaining Horcruxes in their effort to destroy the Dark Lord as the final battle rages on at Hogwarts.",
