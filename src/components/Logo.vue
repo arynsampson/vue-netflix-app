@@ -20,7 +20,7 @@ export default {
 
 .logo {
   display: block;
-  max-width: 180px;
+  max-width: 140px;
 }
 
 @media screen and (min-width: 997px) {
