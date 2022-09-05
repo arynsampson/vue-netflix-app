@@ -3,7 +3,7 @@
     <div v-if="!watchListPage" class="carousel-wrapper">
       <Carousel :movies="moviesArr" />
     </div>
-    <div v-if="!watchListPage" v-for="movie in sortedArray" :key="movie.id">
+    <div class="avail-movies-wrapper" v-if="!watchListPage" v-for="movie in sortedArray" :key="movie.id">
       <MovieItem :item="movie" @updateMovieWatchListVal="addToWatchList" />
     </div>
     <div class="input-wrapper" v-if="watchListPage">
@@ -91,7 +91,12 @@ export default {
 }
 
 .home-content {
-  margin: 20px auto;
+  margin: 0 auto;
+  padding: 110px 0;
+}
+
+.avail-movies-wrapper {
+  padding: 10px;
 }
 
 @media screen and (min-width: 700px) {
