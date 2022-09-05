@@ -1,7 +1,5 @@
 <template>
-  <div class="main-app">
-    <router-view />
-  </div>
+  <router-view />
 </template>
 
 <script>
@@ -25,7 +23,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.main-app {
-  height: 100vh;
+#app {
+  background: rgb(20, 20, 20);
 }
 </style>
