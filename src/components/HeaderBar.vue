@@ -17,10 +17,14 @@ export default {
 
 <style scoped>
 .header {
-  background: lightblue;
+  background: black;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  z-index: 2;
 }
 </style>
