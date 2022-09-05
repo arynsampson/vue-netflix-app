@@ -60,8 +60,8 @@
             "name": "Pearl",
             "movieDescription": "The story of how Pearl became the vicious killer seen in 'X'",
             "genre": ["Horror"],
-            "comingSoon": false,
-            "availDate": "2022-06-16",
+            "comingSoon": true,
+            "availDate": "2022-09-16",
             "thumbnail": "https://m.media-amazon.com/images/M/MV5BZTFkNmE5MjUtZDE1Yi00ZmQyLTk2YWUtN2EwODA1ZmNlOTA5XkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg",
             "preview": "https://imdb-video.media-imdb.com/vi3608199705/1434659607842-pgv4ql-1658842363735.mp4?Expires=1661879466&Signature=DmsbCMA7nLT0j2814IFzKGRo1p3ZsELafl-oHE-x7~F6gR5Lg1i~UOyW5hct~hMI6sYvQXL4a7h4dV3Rb-1ITfSeghZpqBq8t9u8Dx9Zs0SYO8S1xzzohX5LhW6AzJhBqKRnJpbzs2atOoWcN9mZf2RuKSOyLLPjXhUX1OtNfTs-M8LEE0Aret7Tobuf8iybWpdmxmKKCOy744LmdM0qThN1iHPYRInnUbPRVwmflbw03DuMCEnBpgmlx6U0P1aBTqZE6W9Q4dGMrf-3vO-oKkhYQdeF36JL8rSYHJtzi08Bv2T4pMBipGsPNWXFM403CKf~CgPPeeBX8qITHX9mmA__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA",
             "watchList": false
