@@ -13,9 +13,7 @@
               :class="{ inputFieldError: usernameError }"
               v-model="usernameInput"
             />
-            <p v-if="usernameError" class="error-validation">
-              Please enter a valid username with at least 8 characters
-            </p>
+            <p v-if="usernameError" class="error-validation">Please enter a valid username with at least 8 characters</p>
           </div>
           <div class="input-wrapper">
             <input
@@ -25,15 +23,11 @@
               :class="{ inputFieldError: usernameError }"
               v-model="passwordInput"
             />
-            <p v-if="passwordError" class="error-validation">
-              Your password must be greater than 6 characters
-            </p>
+            <p v-if="passwordError" class="error-validation">Your password must be greater than 6 characters</p>
           </div>
         </form>
         <router-link to="/home">
-          <button class="submit-btn" @click.prevent="handleSignIn">
-            Sign In
-          </button>
+          <button class="submit-btn" @click.prevent="handleSignIn">Sign In</button>
         </router-link>
       </div>
     </div>
@@ -86,11 +80,6 @@ export default {
   margin: 0;
   padding: 90px 0;
   width: 100%;
-  height: 100%;
-  background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/ac824598-245b-4828-b14f-5cff9074f4d0/bb41f8e5-e48c-4721-b150-f4b664f05254/ZA-en-20220822-popsignuptwoweeks-perspective_alpha_website_small.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 h1 {
