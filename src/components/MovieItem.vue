@@ -31,6 +31,7 @@ export default {
   border-radius: 15px;
   text-align: center;
   position: relative;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
 .movie-thumbnail-wrapper {
@@ -74,7 +75,7 @@ export default {
 
 .movie-title,
 .icon {
-  color: red;
+  color: white;
   font-size: 20px;
   padding: 15px 0;
 }
