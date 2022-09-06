@@ -3,16 +3,12 @@
     <div v-if="!watchListPage" class="carousel-wrapper">
       <Carousel :movies="moviesArr" />
     </div>
-    <div class="avail-movies-wrapper" v-if="!watchListPage" v-for="movie in sortedArray" :key="movie.id">
-      <MovieItem :item="movie" @updateMovieWatchListVal="addToWatchList" />
-    </div>
+    <MovieItem v-if="!watchListPage" v-for="movie in sortedArray" :key="movie.id" :item="movie" @updateMovieWatchListVal="addToWatchList" />
     <div class="input-wrapper" v-if="watchListPage">
       <label for="search"></label>
       <input type="text" v-model="searchVal" maxlength="64" placeholder="search" />
     </div>
-    <div v-if="watchListPage" v-for="movie in searchWatchListMovies" :key="movie.id">
-      <MovieItem :item="movie" @updateMovieWatchListVal="addToWatchList" />
-    </div>
+    <MovieItem :item="movie" @updateMovieWatchListVal="addToWatchList" v-if="watchListPage" v-for="movie in searchWatchListMovies" :key="movie.id" />
   </div>
 </template>
 
@@ -88,6 +84,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 15px;
 }
 
 .home-content {
@@ -95,8 +92,9 @@ export default {
   padding: 110px 0;
 }
 
-.avail-movies-wrapper {
-  padding: 10px;
+.carousel-wrapper {
+  width: 100%;
+  margin: 20px 0;
 }
 
 @media screen and (min-width: 700px) {
@@ -108,7 +106,6 @@ export default {
   }
 
   .carousel-wrapper {
-    width: 100%;
     grid-column: 1 / -1;
   }
 }
