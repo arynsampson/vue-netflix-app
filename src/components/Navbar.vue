@@ -1,12 +1,12 @@
 <template>
-  <div class="navbar" v-if="navDisplay">
+  <div class="navbar" ref="navbar">
     <p>{{ user[0] }}</p>
     <ul>
       <router-link to="/home">
-        <li>Home</li>
+        <li @click="toggleNav">Home</li>
       </router-link>
       <router-link to="/watchlist">
-        <li>Watchlist</li>
+        <li @click="toggleNav">Watchlist</li>
       </router-link>
       <router-link to="/">
         <li>Logout</li>
@@ -35,6 +35,14 @@ export default {
   methods: {
     toggleNav() {
       this.navDisplay = !this.navDisplay;
+
+      if (this.$refs.navbar.style.visibility === '') {
+        this.$refs.navbar.style.visibility = 'visible';
+      } else if (this.$refs.navbar.style.visibility === 'visible') {
+        this.$refs.navbar.style.visibility = 'hidden';
+      } else if (this.$refs.navbar.style.visibility === 'hidden') {
+        this.$refs.navbar.style.visibility = 'visible';
+      }
     },
   },
   mounted() {
@@ -50,12 +58,18 @@ export default {
   left: 0;
   bottom: 0;
   width: 100%;
+  height: 100vh;
   background: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 4;
+  visibility: hidden;
+}
+
+ul {
+  padding: 85px 0;
 }
 
 li {
@@ -64,13 +78,22 @@ li {
   padding: 20px 0;
   margin: 20px 0;
   font-size: 28px;
+  color: black;
+}
+
+li:hover {
+  color: red;
 }
 
 .burger-menu-wrapper {
   position: relative;
-  z-index: 2;
+  z-index: 6;
   margin-right: 20px;
   cursor: pointer;
+}
+
+.burger-menu-wrapper:active .navbar {
+  display: block;
 }
 
 .bar {
@@ -78,36 +101,42 @@ li {
   width: 25px;
   padding: 2px;
   margin: 5px 0;
-  background: black;
+  background: #fff;
 }
 
 .close {
   font-size: 24px;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 1000px) {
   .navbar {
     position: static;
-    width: 100%;
     background: inherit;
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
+    visibility: visible;
   }
 
   ul {
     width: 100%;
+    padding: 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
 
   li {
     list-style: none;
     text-align: center;
-    display: inline-block;
-    padding: 5px 0;
-    font-size: 14px;
+    color: white;
+    margin: 0;
+  }
+
+  .burger-menu-wrapper {
+    display: none;
   }
 }
 </style>
