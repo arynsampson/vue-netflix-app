@@ -1,6 +1,8 @@
 <template>
-  <HeaderBar />
-  <Movies />
+  <div class="home">
+    <HeaderBar />
+    <Movies />
+  </div>
 </template>
 
 <script>
@@ -24,4 +26,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.home {
+  background: #141414;
+}
+</style>
