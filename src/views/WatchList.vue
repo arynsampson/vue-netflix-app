@@ -1,7 +1,8 @@
 <template>
   <HeaderBar />
-  <p>This is your watchlist</p>
-  <Movies :watchListPageBool="true" />
+  <div class="watchlist">
+    <Movies :watchListPageBool="true" />
+  </div>
 </template>
 
 <script>
@@ -14,4 +15,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.watchlist {
+  background: #141414;
+}
+</style>
