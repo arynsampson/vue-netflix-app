@@ -1,8 +1,7 @@
 <template>
   <div class="movie-item-wrapper">
-    <div class="movie-thumbnail-wrapper">
-      <img :src="item.thumbnail" :alt="item.name" class="movie-thumbnail" />
-    </div>
+    <img :src="item.thumbnail" :alt="item.name" class="movie-thumbnail" />
+
     <div class="overlay">
       <div class="movie-content">
         <router-link :to="{ name: 'Movie', params: { id: item.id } }">
@@ -34,13 +33,9 @@ export default {
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
-.movie-thumbnail-wrapper {
-  width: 100%;
-}
-
 .movie-thumbnail {
   display: block;
-  margin: 10px auto;
+  margin: 0 auto;
   max-width: 280px;
   border-radius: 15px;
 }
