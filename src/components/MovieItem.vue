@@ -80,8 +80,10 @@ export default {
   padding: 0;
 }
 
+.movie-title:hover,
 .icon:hover {
   cursor: pointer;
+  color: #e50914;
 }
 
 .hide {
