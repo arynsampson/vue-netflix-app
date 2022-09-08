@@ -3,12 +3,12 @@
     <div v-if="!watchListPage" class="carousel-wrapper">
       <Carousel :movies="moviesArr" />
     </div>
-    <MovieItem v-if="!watchListPage" v-for="movie in sortedArray" :key="movie.id" :item="movie" @updateMovieWatchListVal="addToWatchList" />
+    <MovieItem v-if="!watchListPage" v-for="movie in sortedAvailMovies" :key="movie.id" :item="movie" @updateMovieWatchListVal="addToWatchList" />
     <div class="input-wrapper" v-if="watchListPage">
       <label for="search"></label>
       <input type="text" v-model="searchVal" maxlength="64" placeholder="search" />
     </div>
-    <MovieItem :item="movie" @updateMovieWatchListVal="addToWatchList" v-if="watchListPage" v-for="movie in searchWatchListMovies" :key="movie.id" />
+    <MovieItem :item="movie" @updateMovieWatchListVal="addToWatchList" v-if="watchListPage" v-for="movie in sortedWatchlistMovies" :key="movie.id" />
   </div>
 </template>
 
@@ -36,6 +36,15 @@ export default {
     addToWatchList(item) {
       item.watchList = !item.watchList;
     },
+
+    sortArr(arrToSort) {
+      arrToSort.sort(function (a, b) {
+        let movieA = a.name.toUpperCase();
+        let movieB = b.name.toUpperCase();
+        return movieA < movieB ? -1 : movieA > movieB ? 1 : 0;
+      });
+      return arrToSort;
+    },
   },
   mounted() {
     if (!this.moviesArr.length) this.moviesArr = mockData.movies;
@@ -56,15 +65,14 @@ export default {
     moviesAvailNow() {
       return this.moviesArr.filter((movie) => !movie.comingSoon);
     },
-    sortedArray() {
-      return this.moviesAvailNow.sort(function (a, b) {
-        let movieA = a.name.toUpperCase();
-        let movieB = b.name.toUpperCase();
-        return movieA < movieB ? -1 : movieA > movieB ? 1 : 0;
-      });
+    sortedAvailMovies() {
+      return this.sortArr(this.moviesAvailNow);
     },
     searchWatchListMovies() {
       return this.moviesArr.filter((movie) => movie.watchList && movie.name.toLowerCase().includes(this.searchVal));
+    },
+    sortedWatchlistMovies() {
+      return this.sortArr(this.searchWatchListMovies);
     },
   },
   watch: {
