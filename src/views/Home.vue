@@ -15,14 +15,6 @@ export default {
     HeaderBar,
     Movies,
   },
-  data() {
-    return {
-      user: [],
-    };
-  },
-  mounted() {
-    this.user = JSON.parse(localStorage.getItem('user'));
-  },
 };
 </script>
 
