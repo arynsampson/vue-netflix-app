@@ -8,7 +8,7 @@
           <p class="movie-title">{{ item.name }}</p>
         </router-link>
 
-        <p v-if="!item.watchList" class="add-icon icon" @click="$emit('updateMovieWatchListVal', item)">Add</p>
+        <p v-if="!item.watchList" class="add-icon icon" @click="$emit('updateMovieWatchListVal', item)">Add to watchlist</p>
 
         <p v-else class="remove-icon icon" @click="$emit('updateMovieWatchListVal', item)">Remove</p>
       </div>
@@ -38,6 +38,7 @@ export default {
   margin: 0 auto;
   max-width: 280px;
   border-radius: 15px;
+  height: 414px;
 }
 
 .overlay {
