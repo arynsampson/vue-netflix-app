@@ -30,18 +30,17 @@ export default {
     return {
       navDisplay: false,
       user: [],
+      windowsSize: null,
     };
   },
   methods: {
     toggleNav() {
       this.navDisplay = !this.navDisplay;
 
-      if (this.$refs.navbar.style.visibility === '') {
+      if (this.$refs.navbar.style.visibility !== 'visible') {
         this.$refs.navbar.style.visibility = 'visible';
-      } else if (this.$refs.navbar.style.visibility === 'visible') {
+      } else {
         this.$refs.navbar.style.visibility = 'hidden';
-      } else if (this.$refs.navbar.style.visibility === 'hidden') {
-        this.$refs.navbar.style.visibility = 'visible';
       }
     },
   },
