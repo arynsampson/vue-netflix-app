@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Logo />
+    <Logo :biggerLogo="true" />
     <div class="content-container">
       <h1>Sign In</h1>
       <div class="form-wrapper">
@@ -52,12 +52,12 @@ export default {
   },
   methods: {
     handleSignIn() {
-      if (this.usernameInput.length < 8) {
+      if (this.usernameInput.trim().length < 8) {
         this.usernameError = true;
       } else {
         this.usernameError = false;
       }
-      if (this.passwordInput.length < 8) {
+      if (this.passwordInput.trim().length < 8) {
         this.passwordError = true;
       } else {
         this.passwordError = false;
