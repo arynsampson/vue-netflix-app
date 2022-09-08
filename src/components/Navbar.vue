@@ -1,6 +1,6 @@
 <template>
   <div class="navbar" ref="navbar">
-    <p>{{ user[0] }}</p>
+    <p>hello, {{ user[0] }}</p>
     <ul>
       <router-link to="/home">
         <li @click="toggleNav">Home</li>
