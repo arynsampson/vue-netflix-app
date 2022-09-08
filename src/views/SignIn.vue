@@ -78,7 +78,7 @@ export default {
 <style scoped>
 .app {
   margin: 0;
-  padding: 90px 0;
+  padding: 60px 0;
   width: 100%;
 }
 
@@ -90,7 +90,7 @@ h1 {
 .content-container {
   max-width: 350px;
   height: 100%;
-  padding-top: 3rem;
+  padding-top: 1.5rem;
   margin: 0 auto;
 }
 
