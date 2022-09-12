@@ -18,6 +18,6 @@ export default {
 <style>
 .watchlist {
   background: #141414;
-  height: 100vh;
+  min-height: 100%;
 }
 </style>
