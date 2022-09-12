@@ -90,8 +90,9 @@ h1 {
 .content-container {
   max-width: 350px;
   height: 100%;
-  padding-top: 1.5rem;
+  padding: 1.5rem;
   margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .input-wrapper {
