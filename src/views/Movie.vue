@@ -1,14 +1,15 @@
 <template>
   <HeaderBar />
-  <p>Movie item view page</p>
-  <p>{{ currMovie.name }}</p>
-  <img :src="currMovie.thumbnail" alt="" width="250" />
-  <ul>
-    <li v-for="(type, index) in currMovie.genre" :key="index">
-      {{ type }}
-    </li>
-  </ul>
-  <p>{{ currMovie.movieDescription }}</p>
+  <div class="movie-details-wrapper">
+    <p>{{ currMovie.name }}</p>
+    <img :src="currMovie.thumbnail" alt="" width="250" />
+    <ul>
+      <li v-for="(type, index) in currMovie.genre" :key="index">
+        {{ type }}
+      </li>
+    </ul>
+    <p>{{ currMovie.movieDescription }}</p>
+  </div>
 </template>
 
 <script>
@@ -34,4 +35,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.movie-details-wrapper {
+  background: #141414;
+  min-height: 100%;
+}
+</style>
