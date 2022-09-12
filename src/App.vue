@@ -24,6 +24,9 @@ export default {
 }
 
 #app {
-  background: rgb(20, 20, 20);
+  background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/908077b4-cf0a-43c3-b2c9-435fb990299b/6ff5a954-d1cc-4b19-9ea8-df9ce154a89b/ZA-en-20220829-popsignuptwoweeks-perspective_alpha_website_medium.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 </style>
