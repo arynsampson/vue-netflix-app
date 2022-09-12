@@ -51,6 +51,7 @@ export default {
   margin-right: auto;
   width: 280px;
   border-radius: 15px;
+  padding: 0 5px;
 }
 
 .overlay:hover {
