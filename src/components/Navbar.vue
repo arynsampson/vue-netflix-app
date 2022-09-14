@@ -1,15 +1,15 @@
 <template>
   <div class="navbar" ref="navbar">
     <p>hello, {{ user[0] }}</p>
-    <ul>
+    <ul class="nav-list">
       <router-link to="/home">
-        <li @click="toggleNav">Home</li>
+        <li class="nav-item" @click="toggleNav">Home</li>
       </router-link>
       <router-link to="/watchlist">
-        <li @click="toggleNav">Watchlist</li>
+        <li class="nav-item" @click="toggleNav">Watchlist</li>
       </router-link>
       <router-link to="/">
-        <li>Logout</li>
+        <li class="nav-item">Logout</li>
       </router-link>
     </ul>
   </div>
@@ -67,11 +67,11 @@ export default {
   visibility: hidden;
 }
 
-ul {
+.nav-list {
   padding: 85px 0;
 }
 
-li {
+.nav-item {
   list-style: none;
   text-align: center;
   padding: 20px 0;
@@ -80,7 +80,7 @@ li {
   color: black;
 }
 
-li:hover {
+.nav-item:hover {
   color: red;
 }
 
@@ -119,7 +119,7 @@ li:hover {
     visibility: visible;
   }
 
-  ul {
+  .nav-list {
     width: 100%;
     padding: 0;
     display: flex;
@@ -127,7 +127,7 @@ li:hover {
     justify-content: space-evenly;
   }
 
-  li {
+  .nav-item {
     list-style: none;
     text-align: center;
     color: white;

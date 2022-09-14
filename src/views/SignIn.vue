@@ -2,7 +2,7 @@
   <div class="app">
     <Logo :biggerLogo="true" />
     <div class="content-container">
-      <h1>Sign In</h1>
+      <h1 class="sign-in-header">Sign In</h1>
       <div class="form-wrapper">
         <form>
           <div class="input-wrapper">
@@ -82,7 +82,7 @@ export default {
   width: 100%;
 }
 
-h1 {
+.sign-in-header {
   color: white;
   text-align: left;
 }
