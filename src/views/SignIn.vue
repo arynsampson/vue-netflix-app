@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Logo :biggerLogo="true" />
+    <Logo class="bigLogo" />
     <div class="content-container">
       <h1 class="sign-in-header">Sign In</h1>
       <div class="form-wrapper">

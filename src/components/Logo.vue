@@ -1,7 +1,7 @@
 <template>
   <div class="logo-wrapper">
     <router-link to="/home">
-      <img src="../assets/logo.png" alt="netflix-logo" class="logo" :class="{ bigLogo: bigLogo }" />
+      <img src="../assets/logo.png" alt="netflix-logo" class="logo" v-bind="$attrs" />
     </router-link>
   </div>
 </template>
@@ -10,14 +10,7 @@
 export default {
   name: 'Logo',
   props: ['biggerLogo'],
-  data() {
-    return {
-      bigLogo: false,
-    };
-  },
-  mounted() {
-    this.bigLogo = this.$props.biggerLogo;
-  },
+  inheritAttrs: false,
 };
 </script>
 
@@ -35,6 +28,7 @@ export default {
 }
 
 .bigLogo {
+  text-align: center;
   max-width: 290px;
 }
 
