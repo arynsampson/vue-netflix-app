@@ -29,6 +29,10 @@ export default {
 <style scoped>
 .carousel {
   background: lightblue;
-  height: 425px;
+  position: relative;
+  top: 95px;
+  width: 90%;
+  height: 400px;
+  margin: 20px 0 80px 0;
 }
 </style>
