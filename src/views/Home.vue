@@ -20,6 +20,7 @@ import sortArr from '../reusable/sort.js';
 
 export default {
   name: 'Home',
+
   components: {
     HeaderBar,
     Movies,
@@ -27,13 +28,16 @@ export default {
     Carousel,
     Search,
   },
+
   data() {
     return {
       moviesArr: [],
       currDate: '',
       searchVal: '',
+      movieGenres: [],
     };
   },
+
   methods: {
     updateMovieWatchListVal(item) {
       item.watchList = !item.watchList;
@@ -58,14 +62,33 @@ export default {
         movie.comingSoon = false;
       }
     });
+
+    this.moviesArr.forEach((movie) => {
+      movie.genres.forEach((genre) => this.movieGenres.push(genre));
+    });
   },
 
   computed: {
+    removeDuplicateGenres() {
+      return this.movieGenres.filter((genre, index) => {
+        return this.movieGenres.indexOf(genre) === index;
+      });
+    },
+
     moviesAvailNow() {
       return this.moviesArr.filter((movie) => !movie.comingSoon && movie.name.toLowerCase().includes(this.searchVal));
     },
+
+    searchMovieGenre() {
+      return this.moviesAvailNow.filter((movie) => {
+        movie.genres.forEach((genre) => {
+          return genre.toLowerCase().includes(this.searchVal);
+        });
+      });
+    },
+
     sortedAvailMovies() {
-      return sortArr(this.moviesAvailNow);
+      return sortArr(this.searchMovieGenre);
     },
   },
 
@@ -83,6 +106,7 @@ export default {
 <style scoped>
 .home-content-container {
   background: #141414;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
