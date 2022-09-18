@@ -34,7 +34,6 @@ export default {
       moviesArr: [],
       currDate: '',
       searchVal: '',
-      movieGenres: [],
     };
   },
 
@@ -62,33 +61,19 @@ export default {
         movie.comingSoon = false;
       }
     });
-
-    this.moviesArr.forEach((movie) => {
-      movie.genres.forEach((genre) => this.movieGenres.push(genre));
-    });
   },
 
   computed: {
-    removeDuplicateGenres() {
-      return this.movieGenres.filter((genre, index) => {
-        return this.movieGenres.indexOf(genre) === index;
-      });
-    },
-
     moviesAvailNow() {
-      return this.moviesArr.filter((movie) => !movie.comingSoon && movie.name.toLowerCase().includes(this.searchVal));
-    },
-
-    searchMovieGenre() {
-      return this.moviesAvailNow.filter((movie) => {
-        movie.genres.forEach((genre) => {
-          return genre.toLowerCase().includes(this.searchVal);
-        });
-      });
+      return this.moviesArr.filter(
+        (movie) =>
+          (!movie.comingSoon && movie.name.toLowerCase().includes(this.searchVal)) ||
+          (!movie.comingSoon && movie.genres.join('').toLowerCase().includes(this.searchVal))
+      );
     },
 
     sortedAvailMovies() {
-      return sortArr(this.searchMovieGenre);
+      return sortArr(this.moviesAvailNow);
     },
   },
 
