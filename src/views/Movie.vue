@@ -9,8 +9,7 @@
       <img :src="currMovie.thumbnail" alt="" class="movie-thumbnail" />
       <div class="preview-wrapper">
         <iframe
-          src="https://www.youtube.com/embed/53IqXMldJMQ"
-          title="GoT Season 7 Being Devoid of Logic"
+          :src="currMovie.preview"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
@@ -19,7 +18,7 @@
       </div>
 
       <ul class="genre-list">
-        <li v-for="(type, index) in currMovie.genre" :key="index" class="movie-genre">
+        <li v-for="(type, index) in currMovie.genres" :key="index" class="movie-genre">
           {{ type }}
         </li>
       </ul>
@@ -96,7 +95,7 @@ export default {
 
 .preview {
   width: 100%;
-  height: 100%;
+  height: 300px;
 }
 
 .genre-list {
@@ -136,6 +135,10 @@ export default {
 
   .preview-wrapper {
     width: 100%;
+  }
+
+  .preview {
+    height: 100%;
   }
 
   .genre-list {
