@@ -3,21 +3,20 @@
   <div class="watchlist-content-container">
     <Search @search="handleSearch" />
     <div class="movie-content-container">
-      <MovieItem v-for="movie in sortedWatchlistMovies" :item="movie" :key="movie.id" @click="updateMovieWatchListVal(movie)" />
+      <MovieItem v-for="movie in filteredWatchListMovies" :item="movie" :key="movie.id" @click="updateMovieWatchListVal(movie)" />
     </div>
   </div>
 </template>
 
 <script>
 import HeaderBar from '../components/HeaderBar.vue';
-import Movies from '../components/Movies.vue';
 import MovieItem from '../components/MovieItem.vue';
 import Search from '../components/Search.vue';
 import sortArr from '../reusable/sort.js';
 
 export default {
   name: 'WatchList',
-  components: { HeaderBar, Movies, MovieItem, Search },
+  components: { HeaderBar, MovieItem, Search },
   data() {
     return {
       watchListMovies: [],
@@ -31,18 +30,26 @@ export default {
     handleSearch(search) {
       this.searchVal = search;
     },
-
-    sortArr(arrToSort) {},
   },
   mounted() {
     this.watchListMovies = JSON.parse(localStorage.getItem('movies'));
   },
   computed: {
-    searchWatchListMovies() {
-      return this.watchListMovies.filter((movie) => movie.watchList && movie.name.toLowerCase().includes(this.searchVal));
+    sortedMovies() {
+      this.watchListMovies.sort(function (a, b) {
+        let movieA = a.name.toUpperCase();
+        let movieB = b.name.toUpperCase();
+        return movieA < movieB ? -1 : movieA > movieB ? 1 : 0;
+      });
+      return this.watchListMovies;
     },
-    sortedWatchlistMovies() {
-      return sortArr(this.searchWatchListMovies);
+
+    filteredWatchListMovies() {
+      return this.watchListMovies.filter(
+        (movie) =>
+          (movie.watchList && movie.name.toLowerCase().includes(this.searchVal)) ||
+          (movie.watchList && movie.genres.join('').toLowerCase().includes(this.searchVal))
+      );
     },
   },
   watch: {
