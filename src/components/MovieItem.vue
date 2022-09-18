@@ -1,5 +1,5 @@
 <template>
-  <div class="movie-item-wrapper">
+  <div class="movie-item-wrapper hidden">
     <img :src="item.thumbnail" :alt="item.name" class="movie-thumbnail" />
 
     <div class="overlay">
@@ -21,10 +21,27 @@ export default {
   name: 'MovieItem',
   props: ['item'],
   emits: ['updateMovieWatchListVal'],
+  data() {
+    return {};
+  },
+  mounted() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        } else {
+          entry.target.classList.remove('show');
+        }
+      });
+    });
+
+    const elements = document.querySelectorAll('.hidden');
+    elements.forEach((el) => observer.observe(el));
+  },
 };
 </script>
 
-<style scoped>
+<style>
 .movie-item-wrapper {
   max-width: 300px;
   border-radius: 15px;
@@ -89,5 +106,14 @@ export default {
 
 .hide {
   display: none;
+}
+
+.hidden {
+  opacity: 0;
+  transition: all 1s;
+}
+
+.show {
+  opacity: 1;
 }
 </style>
