@@ -1,17 +1,16 @@
 <template>
   <HeaderBar />
   <div class="home-content-container">
-    <Carousel :movies="moviesArr" />
+    <Carousel :moviesNotAvailNow="moviesNotAvailNow" />
     <Search @search="handleSearch" />
     <div class="movie-content-container">
-      <MovieItem v-for="movie in sortedAvailMovies" :key="movie.id" :item="movie" @click="updateMovieWatchListVal(movie)" />
+      <MovieItem v-for="movie in moviesAvailNow" :key="movie.id" :item="movie" @click="updateMovieWatchListVal(movie)" />
     </div>
   </div>
 </template>
 
 <script>
 import HeaderBar from '../components/HeaderBar.vue';
-import Movies from '../components/Movies.vue';
 import * as mockData from '../mocks/data.json';
 import MovieItem from '../components/MovieItem.vue';
 import Carousel from '../components/Carousel.vue';
@@ -23,7 +22,6 @@ export default {
 
   components: {
     HeaderBar,
-    Movies,
     MovieItem,
     Carousel,
     Search,
@@ -45,8 +43,6 @@ export default {
     handleSearch(search) {
       this.searchVal = search;
     },
-
-    sortArr(arrToSort) {},
   },
 
   mounted() {
@@ -64,16 +60,25 @@ export default {
   },
 
   computed: {
+    sortedMovies() {
+      this.moviesArr.sort(function (a, b) {
+        let movieA = a.name.toUpperCase();
+        let movieB = b.name.toUpperCase();
+        return movieA < movieB ? -1 : movieA > movieB ? 1 : 0;
+      });
+      return this.moviesArr;
+    },
+
     moviesAvailNow() {
-      return this.moviesArr.filter(
+      return this.sortedMovies.filter(
         (movie) =>
           (!movie.comingSoon && movie.name.toLowerCase().includes(this.searchVal)) ||
           (!movie.comingSoon && movie.genres.join('').toLowerCase().includes(this.searchVal))
       );
     },
 
-    sortedAvailMovies() {
-      return sortArr(this.moviesAvailNow);
+    moviesNotAvailNow() {
+      return this.sortedMovies.filter((movie) => movie.comingSoon);
     },
   },
 
