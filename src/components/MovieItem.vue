@@ -41,7 +41,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .movie-item-wrapper {
   max-width: 300px;
   border-radius: 15px;
