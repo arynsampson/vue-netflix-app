@@ -15,7 +15,6 @@ import * as mockData from '../mocks/data.json';
 import MovieItem from '../components/MovieItem.vue';
 import Carousel from '../components/Carousel.vue';
 import Search from '../components/Search.vue';
-import sortArr from '../reusable/sort.js';
 
 export default {
   name: 'Home',
