@@ -12,11 +12,14 @@
 import HeaderBar from '../components/HeaderBar.vue';
 import MovieItem from '../components/MovieItem.vue';
 import Search from '../components/Search.vue';
-import sortArr from '../reusable/sort.js';
 
 export default {
   name: 'WatchList',
-  components: { HeaderBar, MovieItem, Search },
+  components: {
+    HeaderBar,
+    MovieItem,
+    Search,
+  },
   data() {
     return {
       watchListMovies: [],
