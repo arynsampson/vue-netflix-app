@@ -95,7 +95,7 @@
             "genres": ["Action", "Fantasy", "Sci-Fi"],
             "comingSoon": true,
             "availDate": "2022-10-21",
-            "thumbnail": "https://www.cine-max.sk/fileadmin/user_upload/black-adam-00cx.jpg",
+            "thumbnail": "https://i.pinimg.com/originals/fa/df/b4/fadfb421233468cc7e113064c1db4475.jpg",
             "preview": "https://www.youtube.com/embed/X0tOpBuYasI",
             "watchList": false
         },
@@ -106,7 +106,7 @@
             "genres": ["Fantasy"],
             "comingSoon": true,
             "availDate": "2023-11-02",
-            "thumbnail": "https://m.media-amazon.com/images/M/MV5BOWY0NzVhZmItNjllNy00N2QxLWFhZGYtZjdkMzExNjEyOGEyXkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_.jpg",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BNWIzNGRlM2QtNzVlMS00YTkxLWEzY2ItZmJlMjVjYWFhMWUwXkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_FMjpg_UX1000_.jpg",
             "preview": "https://www.youtube.com/embed/qR9VSIeKjRM",
             "watchList": false
         },
@@ -128,7 +128,7 @@
             "genres": ["Action", "Sci-Fi"],
             "comingSoon": false,
             "availDate": "1999-03-31",
-            "thumbnail": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
+            "thumbnail": "https://cdn.shopify.com/s/files/1/2356/1293/products/The_Matrix_Movie_Poster_EgoAmo_Posters_300x300.jpg?v=1574998139",
             "preview": "https://www.youtube.com/embed/vKQi3bBA1y8",
             "watchList": false
         },
@@ -205,7 +205,7 @@
             "genres": ["Adventure", "Fantasy", "Mystery"],
             "comingSoon": false,
             "availDate": "2011-07-15",
-            "thumbnail": "https://m.media-amazon.com/images/M/MV5BMGVmMWNiMDktYjQ0Mi00MWIxLTk0N2UtN2ZlYTdkN2IzNDNlXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg",
+            "thumbnail": "https://image.tmdb.org/t/p/w500/c54HpQmuwXjHq2C9wmoACjxoom3.jpg",
             "preview": "https://www.youtube.com/embed/mObK5XD8udk",
             "watchList": false
         },
