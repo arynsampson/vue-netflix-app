@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="sign-in-content-container">
     <Logo class="bigLogo" />
     <div class="content-container">
       <h1 class="sign-in-header">Sign In</h1>
@@ -76,9 +76,9 @@ export default {
 </script>
 
 <style scoped>
-.app {
+.sign-in-content-container {
   margin: 0;
-  padding: 60px 0;
+  padding: 25px 0;
   width: 100%;
 }
 
