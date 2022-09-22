@@ -97,14 +97,20 @@ export default {
 @media screen and (min-width: 1000px) {
   .movie-content-container {
     max-width: 950px;
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .movie-content-container {
+    max-width: 1200px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
 @media screen and (min-width: 1400px) {
   .movie-content-container {
-    max-width: 1200px;
+    max-width: 1300px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
