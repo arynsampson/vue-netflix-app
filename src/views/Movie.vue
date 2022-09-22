@@ -162,7 +162,7 @@ export default {
 
 @media (min-width: 1000px) {
   .content-container {
-    max-width: 950px;
+    max-width: 850px;
   }
 
   .movie-desc {
