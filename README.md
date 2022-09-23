@@ -23,3 +23,4 @@ This is a basic netflix-type app that allows a user to view movies & add to thei
 - User can view movies on their home page
 - User can add/remove movies from their watchlist
 - User can view details about each movie
+- User can search movies by name or genre
