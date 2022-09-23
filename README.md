@@ -1,5 +1,7 @@
 # vue-netflix-app
 
+Please note: this deployed project was falsely flagged by google with a phishing warning. I have sent a request to remove the flag. Opening in incognito mode to circumvent the warning screen.
+
 Live site: https://vue-netflix-app-suaw.vercel.app/
 
 ## Project setup
