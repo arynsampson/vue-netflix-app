@@ -12,6 +12,7 @@
 import HeaderBar from '../components/HeaderBar.vue';
 import MovieItem from '../components/MovieItem.vue';
 import Search from '../components/Search.vue';
+import '../assets/styles/styles.css';
 
 export default {
   name: 'WatchList',
@@ -65,53 +66,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.watchlist-content-container {
-  background: #141414;
-  min-height: 100%;
-  padding-top: 120px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.movie-content-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 25px;
-}
-
-@media screen and (min-width: 700px) {
-  .movie-content-container {
-    max-width: 600px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
-    gap: 15px;
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  .movie-content-container {
-    max-width: 950px;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-@media screen and (min-width: 1250px) {
-  .movie-content-container {
-    max-width: 1200px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
-
-@media screen and (min-width: 1400px) {
-  .movie-content-container {
-    max-width: 1300px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
-</style>
