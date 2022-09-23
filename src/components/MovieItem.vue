@@ -21,9 +21,6 @@ export default {
   name: 'MovieItem',
   props: ['item'],
   emits: ['updateMovieWatchListVal'],
-  data() {
-    return {};
-  },
   mounted() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
