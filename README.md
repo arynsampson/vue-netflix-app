@@ -1,5 +1,7 @@
 # vue-netflix-app
 
+Live site: https://vue-netflix-app-suaw.vercel.app/
+
 ## Project setup
 Download files then navigate into the root folder and run:
 ```
