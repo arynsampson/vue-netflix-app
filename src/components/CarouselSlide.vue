@@ -27,7 +27,6 @@ export default {
     return {};
   },
   props: ['movie', 'indexNo', 'visibleSlide'],
-  computed: {},
 };
 </script>
 
