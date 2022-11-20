@@ -9,8 +9,11 @@
       class="carousel-slide"
     />
 
-    <p @click.prevent="next" class="btn btn-next"><i class="fa-solid fa-chevron-right"></i></p>
-    <p @click.prevent="prev" class="btn btn-prev"><i class="fa-solid fa-chevron-left"></i></p>
+    <div v-if="moviesNotAvailNow.length > 1">
+      <p @click.prevent="next" class="btn btn-next"><i class="fa-solid fa-chevron-right"></i></p>
+      <p @click.prevent="prev" class="btn btn-prev"><i class="fa-solid fa-chevron-left"></i></p>
+    </div>
+   
     <div class="overlay">
       <p>COMING SOON...</p>
     </div>
