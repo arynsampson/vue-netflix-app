@@ -11,7 +11,7 @@
               name="username"
               placeholder="Enter your username"
               :class="{ inputFieldError: usernameError }"
-              v-model="usernameInput"
+              v-model.trim="usernameInput"
             />
             <p v-if="usernameError" class="error-validation">Please enter a valid username with at least 8 characters</p>
           </div>
@@ -21,9 +21,9 @@
               name="password"
               placeholder="Enter your password"
               :class="{ inputFieldError: usernameError }"
-              v-model="passwordInput"
+              v-model.trim="passwordInput"
             />
-            <p v-if="passwordError" class="error-validation">Your password must be greater than 6 characters</p>
+            <p v-if="passwordError" class="error-validation">Your password must be greater than 8 characters</p>
           </div>
         </form>
         <router-link to="/home">
@@ -34,45 +34,35 @@
   </div>
 </template>
 
-<script>
-import Home from './Home.vue';
-import Logo from '../components/Logo.vue';
+<script setup>
+  import { ref, onMounted } from 'vue';
+  import { useRouter } from 'vue-router';
+  import Home from './Home.vue';
+  import Logo from '../components/Logo.vue';
+  import { validateInput } from '../modules/validation.js'
 
-export default {
-  name: 'SignIn',
-  components: { Home, Logo },
-  data() {
-    return {
-      usernameInput: '',
-      passwordInput: '',
-      user: [],
-      usernameError: false,
-      passwordError: false,
-    };
-  },
-  methods: {
-    handleSignIn() {
-      if (this.usernameInput.trim().length < 8) {
-        this.usernameError = true;
-      } else {
-        this.usernameError = false;
-      }
-      if (this.passwordInput.trim().length < 8) {
-        this.passwordError = true;
-      } else {
-        this.passwordError = false;
-      }
-      if (!this.usernameError && !this.passwordError) {
-        this.user = [this.usernameInput, this.passwordInput];
-        localStorage.setItem('user', JSON.stringify(this.user));
-        this.$router.push({ name: 'Home' });
-      }
-    },
-  },
-  mounted() {
+  const usernameInput = ref(''); 
+  const passwordInput = ref(''); 
+  const user = ref([]); 
+  const usernameError = ref(false);
+  const passwordError = ref(false);
+  const router = useRouter();
+
+  function handleSignIn() {
+    usernameError.value = validateInput(usernameInput.value);
+    passwordError.value = validateInput(passwordInput.value);
+
+    if (!usernameError.value && !passwordError.value) {
+      user.value = [usernameInput.value, passwordInput.value];
+      localStorage.setItem('user', JSON.stringify(user.value));
+      router.push({ name: 'Home' });
+    }
+  }
+
+  onMounted(() => {
     localStorage.clear();
-  },
-};
+  });
+    
 </script>
 
 <style scoped>
