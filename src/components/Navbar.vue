@@ -23,31 +23,26 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Navbar',
-  data() {
-    return {
-      navDisplay: false,
-      user: [],
-      windowsSize: null,
-    };
-  },
-  methods: {
-    toggleNav() {
-      this.navDisplay = !this.navDisplay;
+<script setup>
+  import { ref, onMounted } from 'vue';
 
-      if (this.$refs.navbar.style.visibility !== 'visible') {
-        this.$refs.navbar.style.visibility = 'visible';
-      } else {
-        this.$refs.navbar.style.visibility = 'hidden';
-      }
-    },
-  },
-  mounted() {
-    this.user = JSON.parse(localStorage.getItem('user'));
-  },
-};
+  const navDisplay = ref(false);
+  const user = ref([]);
+  const windowsSize = ref(null);
+  const navbar = ref(null);
+
+  const toggleNav = () => {
+    navDisplay.value = !navDisplay.value;
+    if(navbar.value.style.visibility !== 'visible') {
+      navbar.value.style.visibility = 'visible';
+    } else {
+      navbar.value.style.visibility = 'hidden';
+    }
+  }
+
+  onMounted(() => {
+    user.value = JSON.parse(localStorage.getItem('user'));
+  });
 </script>
 
 <style scoped>
