@@ -5,20 +5,15 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Search',
-  data() {
-    return {
-      searchVal: '',
-    };
-  },
-  methods: {
-    onChange() {
-      this.$emit('search', this.searchVal);
-    },
-  },
-};
+<script setup>
+  import { ref } from 'vue';
+
+  const searchVal = ref('');
+  const emit = defineEmits(['search'])
+
+  const onChange = () => {
+      emit('search', searchVal.value);
+  }
 </script>
 
 <style scoped>
