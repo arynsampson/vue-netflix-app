@@ -48,7 +48,7 @@
   const passwordError = ref(false);
   const router = useRouter();
 
-  function handleSignIn() {
+  const handleSignIn = () => {
     usernameError.value = validateInput(usernameInput.value);
     passwordError.value = validateInput(passwordInput.value);
 
