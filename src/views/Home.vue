@@ -9,7 +9,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref, onBeforeMount, computed, watch } from 'vue'
 import HeaderBar from '../components/HeaderBar.vue';
 import * as mockData from '../mocks/data.json';
 import MovieItem from '../components/MovieItem.vue';
@@ -17,78 +18,57 @@ import Carousel from '../components/Carousel.vue';
 import Search from '../components/Search.vue';
 import '../assets/styles/styles.css';
 
-export default {
-  name: 'Home',
+  const moviesArr = ref([]);
+  const currDate = ref('');
+  const searchVal = ref('');
+                   
+  const updateMovieWatchListVal = item => {
+    item.watchList = !item.watchList;
+  }
 
-  components: {
-    HeaderBar,
-    MovieItem,
-    Carousel,
-    Search,
-  },
+  const handleSearch = search => {
+    searchVal.value = search;
+  }
 
-  data() {
-    return {
-      moviesArr: [],
-      currDate: '',
-      searchVal: '',
-    };
-  },
-
-  methods: {
-    updateMovieWatchListVal(item) {
-      item.watchList = !item.watchList;
-    },
-
-    handleSearch(search) {
-      this.searchVal = search;
-    },
-  },
-
-  mounted() {
-    if (!this.moviesArr.length) {
-      this.moviesArr = mockData.movies;
+  onBeforeMount(() => {
+    if (!moviesArr.value.length) {
+      moviesArr.value = mockData.movies;
     }
 
-    this.currDate = new Date().toJSON().slice(0, 10);
+    currDate.value = new Date().toJSON().slice(0, 10);
 
-    this.moviesArr.forEach((movie) => {
-      if (this.currDate >= movie.availDate) {
+    moviesArr.value.forEach((movie) => {
+      if (currDate.value >= movie.availDate) {
         movie.comingSoon = false;
       }
     });
-  },
+  }) 
 
-  computed: {
-    sortedMovies() {
-      this.moviesArr.sort(function (a, b) {
-        let movieA = a.name.toUpperCase();
-        let movieB = b.name.toUpperCase();
+  const sortedMovies = computed(() => {
+    moviesArr.value.sort(function (a, b) {
+      let movieA = a.name.toUpperCase();
+      let movieB = b.name.toUpperCase();
         return movieA < movieB ? -1 : movieA > movieB ? 1 : 0;
-      });
-      return this.moviesArr;
-    },
+    });
+    return moviesArr.value;
+  });
 
-    moviesAvailNow() {
-      return this.sortedMovies.filter(
-        (movie) =>
-          (!movie.comingSoon && movie.name.toLowerCase().includes(this.searchVal)) ||
-          (!movie.comingSoon && movie.genres.join('').toLowerCase().includes(this.searchVal))
-      );
-    },
+  const moviesAvailNow = computed(() => {
+    return sortedMovies.value.filter((movie) =>
+      (!movie.comingSoon && movie.name.toLowerCase().includes(searchVal.value)) ||
+      (!movie.comingSoon && movie.genres.join('').toLowerCase().includes(searchVal.value))
+    );
+  }); 
 
-    moviesNotAvailNow() {
-      return this.sortedMovies.filter((movie) => movie.comingSoon);
-    },
-  },
-
-  watch: {
-    moviesArr: {
-      handler() {
-        localStorage.setItem('movies', JSON.stringify(this.moviesArr));
-      },
-      deep: true,
-    },
-  },
-};
+  const moviesNotAvailNow = computed(() => {
+    return sortedMovies.value.filter((movie) => movie.comingSoon);
+  });
+      /*
+  watch(moviesArr.value, async(newMoviesArr, oldMoviesArr) => {
+    try {
+      localStorage.setItem('movies', JSON.stringify(this.moviesArr));
+    } catch(error) {
+      console.log(error);
+    }
+  }); */
 </script>
