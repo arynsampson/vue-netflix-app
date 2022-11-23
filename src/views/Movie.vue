@@ -3,13 +3,13 @@
   <div class="movie-details-wrapper">
     <div class="content-container text-white">
       <div class="movie-header">
-        <h2 class="movie-title">{{ currMovie.name }}</h2>
-        <span class="movie-date">{{ currMovie.availDate }}</span>
+        <h2 class="movie-title">{{ currMovie.value.name }}</h2>
+        <span class="movie-date">{{ currMovie.value.availDate }}</span>
       </div>
-      <img :src="currMovie.thumbnail" alt="" class="movie-thumbnail" />
+      <img :src="currMovie.value.thumbnail" alt="" class="movie-thumbnail" />
       <div class="preview-wrapper">
         <iframe
-          :src="currMovie.preview"
+          :src="currMovie.value.preview"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
@@ -18,36 +18,31 @@
       </div>
 
       <ul class="genre-list">
-        <li v-for="(type, index) in currMovie.genres" :key="index" class="movie-genre">
+        <li v-for="(type, index) in currMovie.value.genres" :key="index" class="movie-genre">
           {{ type }}
         </li>
       </ul>
-      <p class="movie-desc">{{ currMovie.movieDescription }}</p>
+      <p class="movie-desc">{{ currMovie.value.movieDescription }}</p>
     </div>
   </div>
 </template>
 
-<script>
-import HeaderBar from '../components/HeaderBar.vue';
+<script setup>
+  import { reactive, onBeforeMount, } from 'vue';
+  import { useRoute } from 'vue-router';
+  import HeaderBar from '../components/HeaderBar.vue';
 
-export default {
-  name: 'Movie',
-  components: {
-    HeaderBar,
-  },
-  props: ['id'],
-  data() {
-    return {
-      movieId: this.$route.params.id,
-      currMovie: {},
-    };
-  },
-  created() {
+  const currMovie = reactive({});
+  const route = useRoute();
+  const movieId = route.params.id;
+  const props = defineProps(['id']);
+
+  onBeforeMount(() => {
     JSON.parse(localStorage.getItem('movies')).forEach((element) => {
-      if (element.id === this.movieId) this.currMovie = element;
-    });
-  },
-};
+      if (element.id === movieId) currMovie.value = element;
+    })
+  });
+
 </script>
 
 <style scoped>
