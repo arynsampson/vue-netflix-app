@@ -37,7 +37,6 @@
 <script setup>
   import { ref, onMounted } from 'vue';
   import { useRouter } from 'vue-router';
-  import Home from './Home.vue';
   import Logo from '../components/Logo.vue';
   import { validateInput } from '../modules/validation.js'
 
