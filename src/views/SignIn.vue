@@ -61,7 +61,6 @@
   onMounted(() => {
     localStorage.clear();
   });
-    
 </script>
 
 <style scoped>
