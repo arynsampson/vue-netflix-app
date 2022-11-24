@@ -63,12 +63,9 @@ import '../assets/styles/styles.css';
   const moviesNotAvailNow = computed(() => {
     return sortedMovies.value.filter((movie) => movie.comingSoon);
   });
-      /*
-  watch(moviesArr.value, async(newMoviesArr, oldMoviesArr) => {
-    try {
-      localStorage.setItem('movies', JSON.stringify(this.moviesArr));
-    } catch(error) {
-      console.log(error);
-    }
-  }); */
+  
+  watch(() => moviesArr.value, (currentValue, oldValue) => {
+      localStorage.setItem('movies', JSON.stringify(moviesArr.value));
+  }, 
+  { deep: true});
 </script>
