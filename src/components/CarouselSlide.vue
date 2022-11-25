@@ -23,9 +23,6 @@
 <script>
 export default {
   name: 'CarouselSlide',
-  data() {
-    return {};
-  },
   props: ['movie', 'indexNo', 'visibleSlide'],
 };
 </script>
