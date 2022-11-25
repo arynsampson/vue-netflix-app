@@ -23,8 +23,6 @@ export default {
 .logo {
   display: block;
   max-width: 140px;
-  /* background-color: rgba(0, 0, 0, 0.8); */
-  /* box-shadow: rgba(0, 0, 0, 0.6) 0px 19px 38px, rgba(0, 0, 0, 0.8) 0px 15px 12px; */
 }
 
 .bigLogo {
