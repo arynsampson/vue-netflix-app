@@ -65,7 +65,7 @@ import '../assets/styles/styles.css';
   });
   
   watch(() => moviesArr.value, (currentValue, oldValue) => {
-      localStorage.setItem('movies', JSON.stringify(moviesArr.value));
+    localStorage.setItem('movies', JSON.stringify(moviesArr.value));
   }, 
   { deep: true});
 </script>
