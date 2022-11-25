@@ -8,61 +8,45 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import HeaderBar from '../components/HeaderBar.vue';
 import MovieItem from '../components/MovieItem.vue';
 import Search from '../components/Search.vue';
 import '../assets/styles/styles.css';
+import { ref, onBeforeMount, watch, computed } from 'vue';
 
-export default {
-  name: 'WatchList',
-  components: {
-    HeaderBar,
-    MovieItem,
-    Search,
-  },
-  data() {
-    return {
-      watchListMovies: [],
-      searchVal: '',
-    };
-  },
-  methods: {
-    updateMovieWatchListVal(item) {
-      item.watchList = !item.watchList;
-    },
-    handleSearch(search) {
-      this.searchVal = search;
-    },
-  },
-  mounted() {
-    this.watchListMovies = JSON.parse(localStorage.getItem('movies'));
-  },
-  computed: {
-    sortedMovies() {
-      this.watchListMovies.sort(function (a, b) {
-        let movieA = a.name.toUpperCase();
-        let movieB = b.name.toUpperCase();
-        return movieA < movieB ? -1 : movieA > movieB ? 1 : 0;
-      });
-      return this.watchListMovies;
-    },
+  const watchListMovies = ref([]);
+  const searchVal = ref('');
+  
+  const updateMovieWatchListVal = item => {
+    item.watchList = !item.watchList;
+  }
+  const handleSearch = search => {
+      searchVal.value = search;
+  }
 
-    filteredWatchListMovies() {
-      return this.watchListMovies.filter(
-        (movie) =>
-          (movie.watchList && movie.name.toLowerCase().includes(this.searchVal)) ||
-          (movie.watchList && movie.genres.join('').toLowerCase().includes(this.searchVal))
+  onBeforeMount(() => {
+    watchListMovies.value = JSON.parse(localStorage.getItem('movies'));
+  });
+
+  const sortedMovies = computed(() => {
+    watchListMovies.value.sort(function (a, b) {
+      let movieA = a.name.toUpperCase();
+      let movieB = b.name.toUpperCase();
+      return movieA < movieB ? -1 : movieA > movieB ? 1 : 0;
+    });
+    return watchListMovies.value;
+  }); 
+
+  const filteredWatchListMovies = computed(() => {
+    return watchListMovies.value.filter(
+      (movie) =>
+        (movie.watchList && movie.name.toLowerCase().includes(searchVal.value)) ||
+        (movie.watchList && movie.genres.join('').toLowerCase().includes(searchVal.value))
       );
-    },
-  },
-  watch: {
-    watchListMovies: {
-      handler() {
-        localStorage.setItem('movies', JSON.stringify(this.watchListMovies));
-      },
-      deep: true,
-    },
-  },
-};
+    });
+
+  watch(watchListMovies.value, (currentValue, oldValue) => {
+    localStorage.setItem('movies', JSON.stringify(watchListMovies.value));
+  });
 </script>
