@@ -21,34 +21,25 @@
 </template>
 
 <script>
-import * as movies from '../mocks/data.json';
+import  { ref } from 'vue';
 import CarouselSlide from './CarouselSlide.vue';
 
-export default {
-  name: 'Carousel',
-  components: { CarouselSlide },
-  props: ['moviesNotAvailNow'],
-  data() {
-    return {
-      visibleSlide: 0,
-    };
-  },
-  mounted() {},
-  methods: {
-    next() {
-      this.visibleSlide++;
-      if (this.visibleSlide === 5) {
-        this.visibleSlide = 0;
-      }
-    },
-    prev() {
-      if (this.visibleSlide === 0) {
-        this.visibleSlide = 5;
-      }
-      this.visibleSlide--;
-    },
-  },
-};
+const props = defineProps(['moviesNotAvailNow']);
+const visibleSlide = ref(0);
+
+const next = () => {
+  visibleSlide.value++;
+    if(visibleSlide.value === 5) {
+      visibleSlide.value = 0;
+    }
+}
+
+const prev = () => {
+  if(visibleSlide.value === 0) {
+    visibleSlide.value = 5;
+  }
+    visibleSlide.value--;
+}
 </script>
 
 <style scoped>
