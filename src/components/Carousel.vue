@@ -11,7 +11,7 @@
     
     <div v-if="moviesNotAvailNow.length > 2">
       <p @click.prevent="next" class="btn btn-next"><i class="fa-solid fa-chevron-right"></i></p>
-    <p @click.prevent="prev" class="btn btn-prev"><i class="fa-solid fa-chevron-left"></i></p>
+      <p @click.prevent="prev" class="btn btn-prev"><i class="fa-solid fa-chevron-left"></i></p>
     </div>
 
     <div class="overlay">
@@ -20,8 +20,8 @@
   </div>
 </template>
 
-<script>
-import  { ref } from 'vue';
+<script setup>
+import  { ref, defineProps } from 'vue';
 import CarouselSlide from './CarouselSlide.vue';
 
 const props = defineProps(['moviesNotAvailNow']);
@@ -39,7 +39,7 @@ const prev = () => {
     visibleSlide.value = 5;
   }
     visibleSlide.value--;
-}
+} 
 </script>
 
 <style scoped>
